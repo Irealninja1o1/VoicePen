@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Recorder</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        
+        <button class="mic-toggle" id="mic">
+            <span class="material-icons">mic</span>
+        </button>
+        <audio class="playback" controls></audio>
+        <div id="transcript" class="result">
+            <h2>Transcript:</h2>
+        </div>
+        <div id="summary" class="result">
+            <h2>Summary:</h2>
+        </div>
+        <label for="upload-file" class="upload-label">
+            <span class="material-icons">cloud_upload</span>
+            Upload Audio
+        </label>
+        <input type="file" id="upload-file" accept="audio/*" style="display: none;">
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
