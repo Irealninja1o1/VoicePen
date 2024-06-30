@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Audio Recorder and Transcriber",
+  "version": "1.0",
+  "description": "Record audio, upload files, get transcriptions and summaries.",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  },
+  "host_permissions": [
+    "https://api.assemblyai.com/*",
+    "https://api-inference.huggingface.co/*"
+  ]
+}

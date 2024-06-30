@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+button, input[type="file"] {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: #eee;
+    width: 400px; /* Set to match the popup width */
+    height: 600px; /* Set to match the popup height */
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: 100%; /* Full height for flex alignment */
+}
+
+.mic-toggle {
+    position: relative;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: crimson;
+    margin-bottom: 1rem;
+}
+
+.mic-toggle:after,
+.mic-toggle:before {
+    --pad: 0rem;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(220, 20, 60, 0.2);
+    top: var(--pad);
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--pad);
+    border-radius: 50%;
+}
+
+.mic-toggle:after {
+    transition: 0.4s;
+}
+
+.mic-toggle:before {
+    transition: 0.2s;
+}
+
+.mic-toggle:hover:before {
+    --pad: -0.5rem;
+}
+
+.mic-toggle:hover:after {
+    --pad: -1rem;
+}
+
+.mic-toggle span {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.mic-toggle.is-recording:after {
+    animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+.mic-toggle.is-recording:before {
+    animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+@keyframes smoothPadAfter {
+    0% {
+        top: -1rem;
+        bottom: -1rem;
+        left: -1rem;
+        right: -1rem;
+    }
+
+    100% {
+        top: -0.5rem;
+        bottom: -0.5rem;
+        left: -0.5rem;
+        right: -0.5rem;
+    }
+}
+
+@keyframes smoothPadBefore {
+    0% {
+        top: -0.5rem;
+        bottom: -0.5rem;
+        left: -0.5rem;
+        right: -0.5rem;
+    }
+
+    100% {
+        top: -0.25rem;
+        bottom: -0.25rem;
+        left: -0.25rem;
+        right: -0.25rem;
+    }
+}
+
+.playback {
+    margin-bottom: 0.5rem;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+    width: 100%;
+}
+
+.result {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.result h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: dodgerblue;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.upload-label:hover {
+    background-color: deepskyblue;
+}
+
+.upload-label .material-icons {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+input[type="file"] {
+    display: none;
+}
